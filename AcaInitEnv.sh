@@ -25,17 +25,18 @@ export AZ_RESOURCE_GROUP=$AZUREID'-'$RANDOMIZER'-rg'
 export AZ_LOCATION='eastus'
 
 # Container registry
-export ACR_NAME='mkheckcontainerregistry'
+export ACR_NAME='<insert_your_Azure_Container_Registry_name_here>'
 export ACR_REGISTRY_SVR=$ACR_NAME'.azurecr.io'
-# Registry can be defined in a different resource group; if not, use second line below instead
-export ACR_RESOURCE_GROUP='mkheck-sb-rg'
+# Registry _can_ be defined in a different resource group; if not, use second line below instead
+export ACR_RESOURCE_GROUP='<insert_your_ACR_resource_group_here_if_different_from_app_resource_group>'
 # export ACR_RESOURCE_GROUP=$AZ_RESOURCE_GROUP
 
 # Managed Identity used in Terraform creation/deployment of app
 export ACR_MANAGED_IDENTITY=$AZUREID'-'$RANDOMIZER'-mgd-id'
 
 # Service Principal name must be unique within your AD tenant
-export SP_NAME='mkheckcontainerregistrysp'
+# export SP_NAME='<insert_your_Service_Principal_name_here>'
+export SP_NAME=$AZUREID'-'$RANDOMIZER'-sp'
 
 # Obtain the full registry ID
 export ACR_REGISTRY_ID=$(az acr show -n $ACR_NAME -g $ACR_RESOURCE_GROUP --query "id" --output tsv)
