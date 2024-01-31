@@ -1,4 +1,4 @@
-= Powering the Push to Production: A multi-path, live action adventure!
+= Deployment scripts for Azure Container Apps (Spring Boot app, az cli & Terraform)
 
 == Maintainer
 
