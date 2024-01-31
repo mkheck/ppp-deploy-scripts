@@ -9,7 +9,7 @@
 ## Azure CLI (az)
 
 # Your Azure ID
-export AZUREID='<your_azure_id>'
+export AZUREID='<insert_your_Azure_id_here>'
 # export AZUREID='mkheck'   # Define an easily searchable prefix for resources
 
 # Establish seed for random naming
@@ -20,7 +20,7 @@ export RANDOMIZER=$RANDOM
 # export RANDOMIZER=n+1 (just uncomment & increment the above export's value by 1 if you want to run comparisons)
 
 # Azure subscription to use
-# export AZ_SUBSCRIPTION='<insert_your_azure_subscription_here>'    # If not set, will use default subscription
+# export AZ_SUBSCRIPTION='<insert_your_Azure_subscription_here>'    # If not set, will use default subscription
 export AZ_RESOURCE_GROUP=$AZUREID'-'$RANDOMIZER'-rg'
 export AZ_LOCATION='eastus'
 

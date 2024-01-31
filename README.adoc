@@ -1,0 +1,37 @@
+= Powering the Push to Production: A multi-path, live action adventure!
+
+== Maintainer
+
+* Mark Heckler
+* mailto:mark@thehecklers.com[mark@thehecklers.com]
+* mailto:mark.heckler@gmail.com[mark.heckler@gmail.com]
+* https://twitter.com/mkheck[@mkheck on Twitter/X]
+
+== Purpose
+
+Deployment scripts (shell, using az cli) for use deploying to Azure Container Apps using either az cli (entirely) or just to initialize variables for subsequent Terraform, etc. deployment.
+
+This is a component repository that accompanies my session titled *"Powering the Push to Production: A multi-path, live action adventure!"*. Please refer to the umbrella repo linked below.
+
+*_Please star+watch this repo for updates!_*
+
+== Related repositories
+
+https://github.com/mkheck/ppp[Parent repository with links to siblings and further instructions]
+
+== To reproduce the scenarios shown in the presentation
+
+. Clone this repository to your local machine.
+. Edit the `AcaInitEnv.sh` file to include your specific values for all environment variables with placeholder values, e.g. <insert_your_Azure_id_here>, <insert_your_Azure_subscription_here>, etc.
+. Initialize the required environment variables on your machine by running the appropriate shell script(s) -- _see next point_. Note that these are shell scripts to be used in Linux, Mac, and WSL2 environments. If you're using Windows, you'll need to translate the scripts to PowerShell.
+. If deploying entirely via the az cli, you'll need to have the az cli and its Azure Container Apps (ACA) plugin installed on your machine. In the current form of the script, you won't need to have Docker Desktop installed and running on your local machine, as the Spring Boot .jar file will be uploaded and containerized by ACA. Prior to deploying, though, you _will_ need to create that Spring Boot .jar file using ./mvnw clean package (or equivalent) in the project directory. More details can be found in the app component repository's README.
+. If deploying via Terraform, only the AcaInitEnv.sh script is required. You'll need to have the az cli and its Azure Container Apps (ACA) plugin installed on your machine (as above); Docker Desktop installed and running on your local machine; and Terraform installed on your machine. More details can be found in the app component repository's README.
+. When you're done, you can delete the resources as indicated below.
+
+NOTE: To minimize costs, _be sure to delete the resources_ created by the deployment scripts when you're done working with them! You can find a single command to remove all created resources in the AcaUtilities.sh script, which really isn't a script as much as a place to collect useful commands like that one. ;) But this command is best used when deploying via mechanism other than Terraform.
+
+NOTE: If using Terraform to create resources and deploy the related app, please use `terraform destroy` to remove the resources. For more details, please refer to the README in the related app component repository.
+
+== Additional resources
+
+https://learn.microsoft.com/en-us/cli/azure/[az cli: Azure CLI]

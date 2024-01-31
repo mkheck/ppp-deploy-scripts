@@ -7,6 +7,10 @@
 
 # REQUIREMENTS
 ## Azure CLI (az)
+## az cli containerapp extension: az extension add -n containerapp
+
+# Install Azure CLI extension for Container Apps (if not already installed)
+az extension add -n containerapp
 
 # Resource group config
 echo '>> az group create -l $AZ_LOCATION -g $AZ_RESOURCE_GROUP --subscription $AZ_SUBSCRIPTION'
